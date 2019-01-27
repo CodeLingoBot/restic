@@ -149,3 +149,6 @@ Contributors
 - Falk Reimann <falk.reimann@sap.com>
 - Arthur Paim Arnold <arthurpaimarnold@gmail.com>
 - Bruno Michel <bmichel@menfin.info>
+- Charles Hsu <charles0126@gmail.com>
+- Omar Ali <omarali@users.noreply.github.com>
+- Andreas Andersen <andreas@softwaredesign.se>
