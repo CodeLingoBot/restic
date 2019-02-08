@@ -564,7 +564,7 @@ func runGoModVendor() error {
 	return nil
 }
 
-// run "go mod tidy" so that go.sum and go.mod are updated to reflect all
+// runGoModTidy; run "go mod tidy" so that go.sum and go.mod are updated to reflect all
 // dependencies for all OS/Arch combinations, see
 // https://github.com/golang/go/wiki/Modules#why-does-go-mod-tidy-put-so-many-indirect-dependencies-in-my-gomod
 func runGoModTidy() error {

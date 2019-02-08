@@ -311,7 +311,7 @@ func test(cwd string, env map[string]string, args ...string) error {
 	return cmd.Run()
 }
 
-// getVersion returns the version string from the file VERSION in the current
+// getVersionFromFile returns the version string from the file VERSION in the current
 // directory.
 func getVersionFromFile() string {
 	buf, err := ioutil.ReadFile("VERSION")

@@ -130,7 +130,7 @@ func filterExisting(items []string) (result []string, err error) {
 	return
 }
 
-// readFromFile will read all lines from the given filename and return them as
+// readLinesFromFile will read all lines from the given filename and return them as
 // a string array, if filename is empty readFromFile returns and empty string
 // array. If filename is a dash (-), readFromFile will read the lines from the
 // standard input.
@@ -348,7 +348,7 @@ func collectTargets(opts BackupOptions, args []string) (targets []string, err er
 	return targets, nil
 }
 
-// parent returns the ID of the parent snapshot. If there is none, nil is
+// findParentSnapshot returns the ID of the parent snapshot. If there is none, nil is
 // returned.
 func findParentSnapshot(ctx context.Context, repo restic.Repository, opts BackupOptions, targets []string) (parentID *restic.ID, err error) {
 	// Force using a parent

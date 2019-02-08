@@ -75,7 +75,7 @@ var _ = fs.HandleReadDirAller(&HostsDir{})
 var _ = fs.NodeStringLookuper(&HostsDir{})
 var _ = fs.NodeReadlinker(&snapshotLink{})
 
-// read tag names from the current repository-state.
+// updateTagNames; read tag names from the current repository-state.
 func updateTagNames(d *TagsDir) {
 	if d.snCount != d.root.snCount {
 		d.snCount = d.root.snCount
@@ -90,7 +90,7 @@ func updateTagNames(d *TagsDir) {
 	}
 }
 
-// read host names from the current repository-state.
+// updateHostsNames; read host names from the current repository-state.
 func updateHostsNames(d *HostsDir) {
 	if d.snCount != d.root.snCount {
 		d.snCount = d.root.snCount
@@ -101,7 +101,7 @@ func updateHostsNames(d *HostsDir) {
 	}
 }
 
-// read snapshot id names from the current repository-state.
+// updateSnapshotIDSNames; read snapshot id names from the current repository-state.
 func updateSnapshotIDSNames(d *SnapshotsIDSDir) {
 	if d.snCount != d.root.snCount {
 		d.snCount = d.root.snCount
@@ -216,7 +216,7 @@ func (d *TagsDir) Attr(ctx context.Context, attr *fuse.Attr) error {
 	return nil
 }
 
-// search element in string list.
+// isElem; search element in string list.
 func isElem(e string, list []string) bool {
 	for _, x := range list {
 		if e == x {
@@ -228,7 +228,7 @@ func isElem(e string, list []string) bool {
 
 const minSnapshotsReloadTime = 60 * time.Second
 
-// update snapshots if repository has changed
+// updateSnapshots snapshots if repository has changed
 func updateSnapshots(ctx context.Context, root *Root) error {
 	if time.Since(root.lastCheck) < minSnapshotsReloadTime {
 		return nil
@@ -249,7 +249,7 @@ func updateSnapshots(ctx context.Context, root *Root) error {
 	return nil
 }
 
-// read snapshot timestamps from the current repository-state.
+// updateSnapshotNames; read snapshot timestamps from the current repository-state.
 func updateSnapshotNames(d *SnapshotsDir, template string) {
 	if d.snCount != d.root.snCount {
 		d.snCount = d.root.snCount

@@ -78,7 +78,7 @@ func poly1305MAC(msg []byte, nonce []byte, key *MACKey) []byte {
 	return out[:]
 }
 
-// mask poly1305 key
+// maskKey; poly1305 key
 func maskKey(k *MACKey) {
 	if k == nil || k.masked {
 		return
@@ -91,14 +91,14 @@ func maskKey(k *MACKey) {
 	k.masked = true
 }
 
-// construct mac key from slice (k||r), with masking
+// macKeyFromSlice; construct mac key from slice (k||r), with masking
 func macKeyFromSlice(mk *MACKey, data []byte) {
 	copy(mk.K[:], data[:16])
 	copy(mk.R[:], data[16:32])
 	maskKey(mk)
 }
 
-// prepare key for low-level poly1305.Sum(): r||n
+// poly1305PrepareKey; key for low-level poly1305.Sum(): r||n
 func poly1305PrepareKey(nonce []byte, key *MACKey) [32]byte {
 	var k [32]byte
 

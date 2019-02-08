@@ -126,7 +126,7 @@ func initDebugTags() {
 	opts.files = parseFilter("DEBUG_FILES", padFile)
 }
 
-// taken from https://github.com/VividCortex/trace
+// goroutineNum; taken from https://github.com/VividCortex/trace
 func goroutineNum() int {
 	b := make([]byte, 20)
 	runtime.Stack(b, false)
@@ -136,7 +136,7 @@ func goroutineNum() int {
 	return num
 }
 
-// taken from https://github.com/VividCortex/trace
+// getPosition; taken from https://github.com/VividCortex/trace
 func getPosition() (fn, dir, file string, line int) {
 	pc, file, line, ok := runtime.Caller(2)
 	if !ok {

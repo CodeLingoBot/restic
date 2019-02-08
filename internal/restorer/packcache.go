@@ -184,7 +184,7 @@ func (c *packCache) get(packID restic.ID, offset int64, length int, load func(of
 	return pack, nil
 }
 
-// releases the pack record back to the cache
+// release; the pack record back to the cache
 func (c *packCache) release(pack *packCacheRecord) error {
 	c.lock.Lock()
 	defer c.lock.Unlock()

@@ -29,7 +29,7 @@ func uidGidInt(u user.User) (uid, gid uint32, err error) {
 	return
 }
 
-// checkProcess will check if the process retaining the lock
+// processExists will check if the process retaining the lock
 // exists and responds to SIGHUP signal.
 // Returns true if the process exists and responds.
 func (l Lock) processExists() bool {

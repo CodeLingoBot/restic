@@ -429,7 +429,7 @@ func (be *Backend) List(ctx context.Context, t restic.FileType, fn func(restic.F
 	return ctx.Err()
 }
 
-// Remove keys for a specified backend type.
+// removeKeys keys for a specified backend type.
 func (be *Backend) removeKeys(ctx context.Context, t restic.FileType) error {
 	return be.List(ctx, t, func(fi restic.FileInfo) error {
 		return be.Remove(ctx, restic.Handle{Type: t, Name: fi.Name})

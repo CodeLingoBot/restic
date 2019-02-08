@@ -9,7 +9,7 @@ type filePackTraverser struct {
 	lookup func(restic.ID, restic.BlobType) ([]restic.PackedBlob, bool)
 }
 
-// iterates over all remaining packs of the file
+// forEachFilePack iterates over all remaining packs of the file
 func (t *filePackTraverser) forEachFilePack(file *fileInfo, fn func(packIdx int, packID restic.ID, packBlobs []restic.Blob) bool) error {
 	if len(file.blobs) == 0 {
 		return nil

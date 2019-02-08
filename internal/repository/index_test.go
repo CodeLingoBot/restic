@@ -383,7 +383,7 @@ func TestIndexPacks(t *testing.T) {
 
 const maxPackSize = 16 * 1024 * 1024
 
-// This function generates a (insecure) random ID, similar to NewRandomID
+// NewRandomTestID generates a (insecure) random ID, similar to NewRandomID
 func NewRandomTestID(rng *rand.Rand) restic.ID {
 	id := restic.ID{}
 	rng.Read(id[:])
